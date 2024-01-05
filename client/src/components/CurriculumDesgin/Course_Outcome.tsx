@@ -116,8 +116,8 @@ const CourseOutcomes = () => {
     }
   }, []);
   return (
-    <div className="container mx-auto my-6">
-      <legend className="text-3xl mb-5 font-bold">Course Outcome List</legend>
+    <div className="container mx-auto px-5 max-w-[67rem]">
+      <legend className="text-3xl py-7">Course Outcome List</legend>
       <div className="flex flex-row justify-between mb-3">
         <CreateNewEntityButton
           attributes={{

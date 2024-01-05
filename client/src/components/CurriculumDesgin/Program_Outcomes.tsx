@@ -88,8 +88,8 @@ const Program_Outcomes = () => {
   ];
 
   return (
-    <div className="container mx-auto my-6">
-      <legend className="text-3xl mb-5 font-bold  ">
+    <div className="container mx-auto px-5 max-w-[67rem]">
+      <legend className="text-3xl py-7">
         Program Outcome List
       </legend>
       <div className="flex flex-row justify-between mb-3">
@@ -116,7 +116,9 @@ const Program_Outcomes = () => {
         <ExportToCsv data={data} type="data" /> {/* Export All Data */}
         {/* <ExportToCsv data={data} type="rows" /> Export All Rows */}
       </div>
-      <div className="flex gap-3 my-6">
+
+
+      {/* <div className="flex gap-3 my-6">
         <label className="mr-2 ">Select Curriculum:</label>
         <select
           onChange={handleCurriculumChange}
@@ -129,7 +131,9 @@ const Program_Outcomes = () => {
             </option>
           ))}
         </select>
-      </div>
+      </div> */}
+
+
       <MaterialReactTable
         columns={columns}
         data={tableData}

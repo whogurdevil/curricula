@@ -11,72 +11,72 @@ import CreateNewEntityButton from "../../common/CreateNewRow";
 
 // Define the Course type
 type Course = {
-  Sl_No: number;
+  // Sl_No: number;
   Code: string;
   Course_Title: string;
   Core_Elective: string;
   Credits: number;
   Total_Marks: string;
   Course_Owner: string;
-  Course_Reviewer: string;
+  // Course_Reviewer: string;
   Mode: string;
 };
 
 // Sample data for the Course table
 const data: Course[] = [
   {
-    Sl_No: 1,
+    // Sl_No: 1,
     Code: "CSE101",
     Course_Title: "Introduction to Computer Science",
     Core_Elective: "Core",
     Credits: 3,
     Total_Marks: "100",
     Course_Owner: "John Doe",
-    Course_Reviewer: "Jane Smith",
+    // Course_Reviewer: "Jane Smith",
     Mode: "Online",
   },
   {
-    Sl_No: 2,
+    // Sl_No: 2,
     Code: "CSE202",
     Course_Title: "Data Structures and Algorithms",
     Core_Elective: "Core",
     Credits: 4,
     Total_Marks: "150",
     Course_Owner: "Alice Johnson",
-    Course_Reviewer: "Bob Brown",
+    // Course_Reviewer: "Bob Brown",
     Mode: "Offline",
   },
   {
-    Sl_No: 3,
+    // Sl_No: 3,
     Code: "CSE303",
     Course_Title: "Database Management Systems",
     Core_Elective: "Core",
     Credits: 3,
     Total_Marks: "120",
     Course_Owner: "Eve Williams",
-    Course_Reviewer: "Charlie Wilson",
+    // Course_Reviewer: "Charlie Wilson",
     Mode: "Online",
   },
   {
-    Sl_No: 4,
+    // Sl_No: 4,
     Code: "CSE404",
     Course_Title: "Artificial Intelligence",
     Core_Elective: "Elective",
     Credits: 4,
     Total_Marks: "160",
     Course_Owner: "Grace Davis",
-    Course_Reviewer: "David Lee",
+    // Course_Reviewer: "David Lee",
     Mode: "Offline",
   },
   {
-    Sl_No: 5,
+    // Sl_No: 5,
     Code: "CSE505",
     Course_Title: "Machine Learning",
     Core_Elective: "Elective",
     Credits: 4,
     Total_Marks: "160",
     Course_Owner: "Frank Martin",
-    Course_Reviewer: "Olivia Miller",
+    // Course_Reviewer: "Olivia Miller",
     Mode: "Online",
   },
 ];
@@ -89,11 +89,11 @@ const CourseList = () => {
   const [tableData, setTableData] = useState<Course[]>(() => data);
 
   const columns: MRT_ColumnDef<Course>[] = [
-    {
-      accessorKey: "Sl_No",
-      header: "Sl No.",
-      size: 50,
-    },
+    // {
+    //   // accessorKey: "Sl_No",
+    //   header: "S No.",
+    //   size: 50,
+    // },
     {
       accessorKey: "Code",
       header: "Code",
@@ -124,11 +124,11 @@ const CourseList = () => {
       header: "Course Owner",
       size: 150,
     },
-    {
-      accessorKey: "Course_Reviewer",
-      header: "Course Reviewer",
-      size: 150,
-    },
+    // {
+    //   // accessorKey: "Course_Reviewer",
+    //   header: "Course Reviewer",
+    //   size: 150,
+    // },
     {
       accessorKey: "Mode",
       header: "Mode",
@@ -168,12 +168,12 @@ const CourseList = () => {
   };
 
   return (
-    <div className="contianer mx-28 my-6">
-      <legend className="text-3xl mb-5 font-bold">Course List</legend>
+    <div className="container mx-auto px-5 max-w-[67rem]">
+      <legend className="text-3xl py-7">Course List</legend>
       <div className="flex flex-row justify-between mb-3">
         <CreateNewEntityButton
           attributes={{
-            Sl_No: "Sl No",
+            // Sl_No: "Sl No",
             Code: "Code",
             Course_Title: "Course Title",
             Core_Elective: "Core/Elective",
@@ -190,14 +190,14 @@ const CourseList = () => {
             setTableData((prevData) => [
               ...prevData,
               {
-                Sl_No: prevData.length + 1, // Increment the length to generate a unique Sl_No
+                // Sl_No: prevData.length + 1,
                 Code: newData.Code,
                 Course_Title: newData.Course_Title,
                 Core_Elective: newData.Core_Elective,
                 Credits: parseInt(newData.Credits, 10), // Parse the string to a number
                 Total_Marks: newData.Total_Marks,
                 Course_Owner: newData.Course_Owner,
-                Course_Reviewer: newData.Course_Reviewer,
+                // Course_Reviewer: newData.Course_Reviewer,
                 Mode: newData.Mode,
               },
             ]);
@@ -237,7 +237,7 @@ const CourseList = () => {
         renderRowActions={({ row, table }) => (
           <div>
             <EditIcon
-              className="mr-4 primary"
+              // className="mr-4 primary"
               onClick={() => {
                 table.setEditingRow(row);
               }}

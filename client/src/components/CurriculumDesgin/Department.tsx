@@ -107,37 +107,12 @@ const Department = () => {
   }, []);
 
 return (
-  <div>
+  <div className="container mx-auto px-5 max-w-[67rem]">
     <fieldset>
-      <legend className="text-3xl">Department Vission/Mission</legend>
+      <legend className="text-3xl py-7">Department</legend>
 
-      <MaterialReactTable
-        columns={columns}
-        data={tableData}
-        editingMode="modal" // Default
-        enableEditing
-
-
-        enableRowActions
-        renderRowActions={({ row, table }) => (
-          <div>
-            <EditIcon
-              className='mr-4 primary'
-
-              onClick={() => {
-                table.setEditingRow(row);
-              }}
-              color='success'
-            />
-            <DeleteIcon
-              onClick={() => handleDeleteRow(row.original as DepartmentData)}
-              color='error'
-            />
-          </div>
-        )}
-      />
-    </fieldset>
-    <CreateNewEntityButton
+      <div className='flex flex-row justify-between mb-3'>
+      <CreateNewEntityButton
       attributes={{
         organization_vision: 'Organization Vision',
         organization_mission: 'Organization Mission',
@@ -171,6 +146,33 @@ return (
 
     <ExportToCsv data={data} type="data" /> {/* Export All Data */}
     {/* <ExportToCsv data={data} type="rows" /> Export All Rows */}
+        </div>
+
+      <MaterialReactTable
+        columns={columns}
+        data={tableData}
+        editingMode="modal" // Default
+        enableEditing
+
+
+        enableRowActions
+        renderRowActions={({ row, table }) => (
+          <div>
+            <EditIcon
+
+              onClick={() => {
+                table.setEditingRow(row);
+              }}
+              color='success'
+            />
+            <DeleteIcon
+              onClick={() => handleDeleteRow(row.original as DepartmentData)}
+              color='error'
+            />
+          </div>
+        )}
+      />
+    </fieldset>
   </div>
 );
 };

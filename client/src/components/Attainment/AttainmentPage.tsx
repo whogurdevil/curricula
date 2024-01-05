@@ -5,7 +5,7 @@ import LeftNav from './LeftNav'
 export default function AssesmentPage() {
   return (
     <React.Fragment>
-      <div className='flex flex-row '>
+      <div className='max-w-[68rem]'>
         <LeftNav />
         <div className='pl-6 py-6'>
           <Outlet />
