@@ -5,7 +5,7 @@ const pool = require("../db/db"); // Assuming you have a PostgreSQL connection p
 // Create department
 router.post("/new-department", async (req, res) => {
   try {
-    const { name, vision, mision, organization, head } = req.body;
+    const { name, vision, mission, organization, head } = req.body;
 
     // Check if the referenced organization exists before inserting
     const organizationCheckQuery = 'SELECT * FROM organization WHERE name = $1';
@@ -17,9 +17,9 @@ router.post("/new-department", async (req, res) => {
 
     // Assuming 'department' is your table name
     const insertQuery =
-      'INSERT INTO department (name, vision, mision, organization, head) VALUES ($1, $2, $3, $4, $5) RETURNING *';
+      'INSERT INTO department (name, vision, mission, organization, head) VALUES ($1, $2, $3, $4, $5) RETURNING *';
 
-    const result = await pool.query(insertQuery, [name, vision, mision, organization, head]);
+    const result = await pool.query(insertQuery, [name, vision, mission, organization, head]);
 
     res.status(200).json({ success: true, data: result.rows[0] });
   } catch (error) {
@@ -33,6 +33,8 @@ router.get("/all-departments", async (req, res) => {
   try {
     const query = 'SELECT * FROM department';
     const result = await pool.query(query);
+    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    console.log(query);
     res.status(200).json({ success: true, data: result.rows });
   } catch (error) {
     console.error('Error retrieving departments:', error);

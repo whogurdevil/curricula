@@ -7,7 +7,7 @@ router.post("/new-organization", async (req, res) => {
     try {
         const data = req.body;
         const newOrganization = await pool.query(`
-            INSERT INTO organization (name, vision, mision)
+            INSERT INTO organization (name, vision, mission)
             VALUES ($1, $2, $3)
             RETURNING *;
         `, [data.name, data.vision, data.mission]);

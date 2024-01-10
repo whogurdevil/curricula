@@ -12,7 +12,7 @@ type OrganizationProps = {
 type OrganizationData = {
   name: string;
   vision: string;
-  mision: string;
+  mission: string;
 };
 
 const Organization: React.FC<OrganizationProps> = ({ organizationName }): JSX.Element | null => {
@@ -78,14 +78,14 @@ const Organization: React.FC<OrganizationProps> = ({ organizationName }): JSX.El
               color="white"
               className="mt-6 flex justify-center gap-1 text-4xl font-normal"
             >
-              mision
+              mission
             </Typography>
             <Typography
               variant="h3"
               color="white"
               className="mt-6 flex justify-center gap-1 text-sm font-normal text-justify"
             >
-              {organizationData?.mision}
+              {organizationData?.mission}
             </Typography>
           </div>
 

@@ -5,7 +5,7 @@ const API_BASE_URL = 'http://localhost:5000'; // Adjust the URL based on your ba
 type Organization = {
   name: string;
   vision: string;
-  mision: string;
+  mission: string;
 };
 
 export const getOrganizationByName = async (organizationName: string) => {
@@ -20,7 +20,7 @@ export const getOrganizationByName = async (organizationName: string) => {
 export const addDepartment = async (departmentData: {
   name: string;
   vision: string;
-  mision: string;
+  mission: string;
   organization: string;
   head: string;
 }) => {

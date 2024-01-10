@@ -1,4 +1,3 @@
-//TODO: add button still doesnt work make it work
 import React, { useCallback, useEffect, useState } from "react";
 import {
   MaterialReactTable,
@@ -14,7 +13,7 @@ type DepartmentData = {
   id: number;
   name: string;
   vision: string;
-  mision: string;
+  mission: string;
   organization: string;
   head: string;
 };
@@ -22,6 +21,7 @@ type DepartmentData = {
 const Department = () => {
   const [selectedData, setSelectedData] = useState<DepartmentData[]>([]);
   const [tableData, setTableData] = useState<DepartmentData[]>([]);
+  const [rerender, setRerender] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,7 +36,7 @@ const Department = () => {
     };
 
     fetchData();
-  }, []);
+  }, [rerender]);
 
   const handleDeleteRow = useCallback(async (row: DepartmentData) => {
     try {
@@ -54,22 +54,23 @@ const Department = () => {
   const handleAddDepartment = async (newData: Record<string, string>) => {
     try {
       const addedDepartment = await addDepartment(newData as unknown as DepartmentData);
-      setTableData((prevData) => [...prevData, addedDepartment]);
+      // setTableData((prevData) => [...prevData, addedDepartment]);
+      setRerender((prev) => !prev);
     } catch (error:any) {
       console.error('Error adding department:', error.message);
     }
   };
 
   const columns: MRT_ColumnDef<DepartmentData>[] = [
-    { accessorKey: "name", header: "Name", size: 100 },
-    { accessorKey: "vision", header: "Vision", size: 400 },
-    { accessorKey: "mision", header: "mision", size: 400 },
+    { accessorKey: "name", header: "Name", size: 50 },
+    { accessorKey: "vision", header: "Vision", size: 200 },
+    { accessorKey: "mission", header: "mission", size: 200 },
     { accessorKey: "organization", header: "Organization", size: 50 },
-    { accessorKey: "head", header: "Head", size: 150 },
+    { accessorKey: "head", header: "Head", size: 50 },
   ];
 
   return (
-    <div className="container mx-auto px-5 max-w-[67rem]">
+    <div className="container mx-auto px-5 max-w-fit">
       <fieldset>
         <legend className="text-3xl py-7">Departments</legend>
 
@@ -78,7 +79,7 @@ const Department = () => {
             attributes={{
               name: 'Department Name',
               vision: 'Department Vision',
-              mision: 'Department mision',
+              mission: 'Department mission',
               organization: 'Organization Name',
               head: 'Head',
             }}
@@ -89,6 +90,7 @@ const Department = () => {
         </div>
 
         <MaterialReactTable
+        
           columns={columns}
           data={tableData}
           enableEditing
