@@ -15,6 +15,7 @@ import {
   GlobeAsiaAustraliaIcon,
   GlobeEuropeAfricaIcon,
   ArrowsUpDownIcon,
+  BookmarkIcon
 } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
 
@@ -43,6 +44,15 @@ export default function DefaultSidebar() {
                 <HomeModernIcon className="h-5 w-5" />
               </ListItemPrefix>
               Department
+            </ListItem>
+          </Link>
+
+          <Link to={"program"} relative="route">
+            <ListItem>
+              <ListItemPrefix>
+                <BookmarkIcon className="h-5 w-5" />
+              </ListItemPrefix>
+              Program
             </ListItem>
           </Link>
 

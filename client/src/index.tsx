@@ -20,6 +20,7 @@ import CoAttainment from "./components/Attainment/CoAttainment";
 import Profile from "./components/Profile/Profile";
 import Login from "./components/Login";
 import Organization from "./components/CurriculumDesgin/Organization";
+import Program from "./components/CurriculumDesgin/Program";
 const Root = () => (
   <Router>
     <Routes>
@@ -34,6 +35,7 @@ const Root = () => (
           <Route path="department" element={<Department />} />
           <Route path="course_outcomes" element={<CourseOutcomes />} />
           <Route path="organization" element={<Organization organizationName={"GNDEC2"} />} />
+          <Route path="program" element={<Program/>} />
         </Route>
 
         <Route path="Assesment" element={<Assesment />}>

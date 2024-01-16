@@ -38,7 +38,7 @@ export const addDepartment = async (departmentData: {
 export const getAllDepartments = async () => {
   try {
     const response = await axios.get(`${API_BASE_URL}/department/all-departments`);
-    console.log(response.data)
+    // console.log(response.data)
     return response.data;
   } catch (error:any) {
     throw new Error(`Error fetching all departments: ${error.message}`);
@@ -51,5 +51,42 @@ export const getDepartmentById = async (departmentId: number) => {
     return response.data;
   } catch (error:any) {
     throw new Error(`Error fetching department by ID: ${error.message}`);
+  }
+};
+
+export const getAllPrograms = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/program/all-programs`);
+    console.log(response.data)
+    return response.data;
+  } catch (error:any) {
+    throw new Error(`Error fetching all programs: ${error.message}`);
+  }
+};
+
+export const addProgram = async (programData: {
+  name: string;
+  owner: string;
+  description: string;
+  department: string;
+}) => {
+  try {
+    // Check if the referenced organization exists before adding the department
+    // await getOrganizationByName(departmentData.organization);
+
+    const response = await axios.post(`${API_BASE_URL}/program/new-program`, programData);
+    return response.data;
+  } catch (error:any) {
+    throw new Error(`Error adding department: ${error.message}`);
+  }
+};
+
+export const getAllCurriculums = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/curriculum/all-curriculums`);
+    // console.log(response.data)
+    return response.data;
+  } catch (error:any) {
+    throw new Error(`Error fetching all programs: ${error.message}`);
   }
 };

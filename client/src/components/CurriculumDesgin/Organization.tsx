@@ -24,7 +24,6 @@ const Organization: React.FC<OrganizationProps> = ({ organizationName }): JSX.El
     const fetchOrganizationData = async () => {
       try {
         const data = await getOrganizationByName(organizationName);
-        console.log(data)
         setOrganizationData(data);
       } catch (error: any) {
         setError(error.message);

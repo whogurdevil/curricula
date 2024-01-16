@@ -8,15 +8,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import CreateNewEntityButton from "../../common/CreateNewRow";
 import ExportToCsv from "../../common/ExportToCsv";
 import { getAllDepartments, addDepartment } from "../../services/db";
-
-type DepartmentData = {
-  id: number;
-  name: string;
-  vision: string;
-  mission: string;
-  organization: string;
-  head: string;
-};
+import { DepartmentData } from '../../types/types'
 
 const Department = () => {
   const [selectedData, setSelectedData] = useState<DepartmentData[]>([]);
@@ -27,7 +19,6 @@ const Department = () => {
     const fetchData = async () => {
       try {
         const departments = await getAllDepartments();
-        console.log(departments)
         setSelectedData(departments.data);
         setTableData(departments.data);
       } catch (error:any) {
